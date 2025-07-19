@@ -1,6 +1,8 @@
 import random
 from faker import Faker
 import mysql.connector
+import streamlit as st
+
 
 fake = Faker()
 
