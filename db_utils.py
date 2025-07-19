@@ -8,12 +8,11 @@ fake = Faker()
 def get_connection():
     return mysql.connector.connect(
         host=st.secrets["db_host"],
+        port=int(st.secrets.get("db_port", 3306)),
         user=st.secrets["db_user"],
         password=st.secrets["db_password"],
-        database=st.secrets["db_name"],
-        port=int(st.secrets.get("db_port", 3306))  # fallback to 3306 if not set
+        database=st.secrets["db_name"]
     )
-
 def create_table():
     conn = get_connection()
     cursor = conn.cursor()
