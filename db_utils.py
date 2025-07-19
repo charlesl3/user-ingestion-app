@@ -6,10 +6,10 @@ fake = Faker()
 
 def get_connection():
     return mysql.connector.connect(
-        host='mysql.railway.internal',
-        user='root',
-        password='HRvEtewLXGocLdBdzkABoRFkRFEaXuXE',
-        database='railway'
+        host=st.secrets["db_host"],
+        user=st.secrets["db_user"],
+        password=st.secrets["db_password"],
+        database=st.secrets["db_name"]
     )
 
 def create_table():
